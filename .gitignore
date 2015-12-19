@@ -1,6 +1,7 @@
 .bundle/
 *.log
 pkg/
+*.gem
 spec/dummy/tmp/
 spec/dummy/my-app/
 *.gemfile.lock

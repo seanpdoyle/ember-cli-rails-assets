@@ -11,10 +11,7 @@ describe EmberCli::Assets::AssetMap do
         },
         "prepend" => "foo/",
       }
-      assets = build_assets(
-        ember_app_name: "bar",
-        asset_map: asset_map,
-      )
+      assets = build_assets(name: "bar", asset_map: asset_map)
 
       javascripts = assets.javascripts
 
@@ -26,10 +23,7 @@ describe EmberCli::Assets::AssetMap do
 
     context "when the asset_map is empty" do
       it "raises a BuildError" do
-        assets = build_assets(
-          asset_map: {},
-          ember_app_name: "bar",
-        )
+        assets = build_assets(asset_map: {}, name: "bar")
 
         expect { assets.javascripts }.to raise_build_error
       end
@@ -46,10 +40,7 @@ describe EmberCli::Assets::AssetMap do
         },
         "prepend" => "foo/",
       }
-      assets = build_assets(
-        ember_app_name: "bar",
-        asset_map: asset_map,
-      )
+      assets = build_assets(name: "bar", asset_map: asset_map)
 
       stylesheets = assets.stylesheets
 
@@ -61,10 +52,7 @@ describe EmberCli::Assets::AssetMap do
 
     context "when the asset_map is empty" do
       it "raises a BuildError" do
-        assets = build_assets(
-          asset_map: {},
-          ember_app_name: "bar",
-        )
+        assets = build_assets(asset_map: {}, name: "bar")
 
         expect { assets.stylesheets }.to raise_build_error
       end

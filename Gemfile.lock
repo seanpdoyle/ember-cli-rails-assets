@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/thoughtbot/ember-cli-rails.git
-  revision: f1de6c17dab6f40cd8b947351328611f7bca63f8
+  revision: 2adf53b1544a31a8acd347b67d7bae21ebfcf93f
   branch: remove-assets
   specs:
     ember-cli-rails (0.6.0)

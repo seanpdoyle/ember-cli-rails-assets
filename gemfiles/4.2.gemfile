@@ -7,10 +7,10 @@ gem "rails", "~> 4.2.1"
 
 group :development, :test do
   gem "pry"
+  gem "ember-cli-rails", :github => "thoughtbot/ember-cli-rails", :branch => "remove-assets"
 end
 
 group :test do
-  gem "ember-cli-rails", :github => "thoughtbot/ember-cli-rails", :branch => "1.0.0-beta"
   gem "poltergeist", "~> 1.8.0"
   gem "rspec-rails"
 end

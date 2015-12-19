@@ -3,8 +3,8 @@ require "ember_cli/assets/errors"
 module EmberCli
   module Assets
     class AssetMap
-      def initialize(ember_app_name:, asset_map:)
-        @ember_app_name = ember_app_name
+      def initialize(name:, asset_map:)
+        @name = name
         @asset_map = asset_map
       end
 
@@ -13,7 +13,7 @@ module EmberCli
 
         [
           asset_matching(/vendor(.*)\.js\z/),
-          asset_matching(/#{ember_app_name}(.*)\.js\z/),
+          asset_matching(/#{name}(.*)\.js\z/),
         ]
       end
 
@@ -22,13 +22,13 @@ module EmberCli
 
         [
           asset_matching(/vendor(.*)\.css\z/),
-          asset_matching(/#{ember_app_name}(.*)\.css\z/),
+          asset_matching(/#{name}(.*)\.css\z/),
         ]
       end
 
       private
 
-      attr_reader :app_name, :ember_app_name, :asset_map
+      attr_reader :name, :asset_map
 
       def asset_matching(regex)
         matching_asset = files.detect { |asset| asset =~ regex }
@@ -59,7 +59,7 @@ module EmberCli
       def assert_asset_map!
         if assets.empty?
           raise BuildError.new <<-MSG
-            Missing `#{ember_app_name}/assets/assetMap.json`
+            Missing `#{name}/assets/assetMap.json`
           MSG
         end
       end

@@ -6,7 +6,6 @@ module EmberCli
   module Assets
     class Lookup
       def initialize(app)
-        @app = app
         @paths = Paths.new(app)
       end
 
@@ -20,7 +19,7 @@ module EmberCli
 
       private
 
-      attr_reader :app, :paths
+      attr_reader :paths
 
       def asset_map
         AssetMap.new(

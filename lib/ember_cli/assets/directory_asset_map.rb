@@ -2,7 +2,7 @@ module EmberCli
   module Assets
     class DirectoryAssetMap
       def initialize(directory)
-        @directory = Pathname(directory)
+        @directory = Pathname.new(directory)
       end
 
       def to_h
@@ -11,6 +11,10 @@ module EmberCli
           "prepend" => "assets/",
         }
       end
+
+      private
+
+      attr_reader :directory
 
       def files_with_data
         files.reduce({}) do |manifest, file|
@@ -22,10 +26,9 @@ module EmberCli
         end
       end
 
-      private
 
       def files
-        @directory.children.map { |path| File.new(path) }
+        directory.children.map { |path| File.new(path) }
       end
     end
   end

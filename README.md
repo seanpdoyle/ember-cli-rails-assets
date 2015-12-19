@@ -70,6 +70,8 @@ end
 Then, in the corresponding view, use the asset helpers:
 
 ```erb
+<!-- app/views/ember/index.html.erb -->
+
 <%= include_ember_script_tags :frontend %>
 <%= include_ember_stylesheet_tags :frontend %>
 ```

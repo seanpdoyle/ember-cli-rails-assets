@@ -2,9 +2,10 @@ module ActionDispatch
   module Routing
     class Mapper
       def mount_ember_assets(app_name, to: "/")
-        dist_directory = EmberCli[app_name].paths.dist
+        app = EmberCli[app_name]
+        rack_app = Rack::File.new(app.dist_path.to_s)
 
-        mount Rack::File.new(dist_directory.to_s) => to
+        mount rack_app => to
       end
     end
   end

@@ -40,7 +40,9 @@ module EmberCli
       end
 
       def ember_app_name
-        @ember_app_name ||= app.options.fetch(:name) { package_json.fetch(:name) }
+        @ember_app_name ||= app.options.fetch(:name) do
+          package_json.fetch(:name)
+        end
       end
 
       def package_json

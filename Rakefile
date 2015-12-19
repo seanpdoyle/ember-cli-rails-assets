@@ -1,8 +1,10 @@
+require "rubygems"
 begin
   require "bundler/setup"
 rescue LoadError
   puts "You must `gem install bundler` and `bundle install` to run rake tasks"
 end
+require "appraisal"
 
 require "rdoc/task"
 
@@ -30,4 +32,8 @@ if defined? RSpec
   RSpec::Core::RakeTask.new(:spec) do |t|
     t.verbose = false
   end
+end
+
+if !ENV["APPRAISAL_INITIALIZED"] && !ENV["TRAVIS"]
+  task :default => :appraisal
 end

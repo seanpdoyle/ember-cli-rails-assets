@@ -10,7 +10,7 @@ describe EmberCli::Assets::DirectoryAssetMap do
       create_file("second")
       create_file("third")
 
-      directory_manifest = EmberCli::Assets::DirectoryAssetMap.new(directory).to_h
+      directory_manifest = build_directory_asset_map(directory).to_h
 
       expect(directory_manifest["prepend"]).to eq("assets/")
       expect(directory_manifest["assets"]).to match a_hash_including(
@@ -19,6 +19,10 @@ describe EmberCli::Assets::DirectoryAssetMap do
         "third" => "third",
       )
     end
+  end
+
+  def build_directory_asset_map(directory)
+    EmberCli::Assets::DirectoryAssetMap.new(directory)
   end
 
   def create_file(name)

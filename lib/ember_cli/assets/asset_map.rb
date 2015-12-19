@@ -12,8 +12,8 @@ module EmberCli
         assert_asset_map!
 
         [
-          asset_matching(%r{vendor(.*)\.js\z}),
-          asset_matching(%r{#{ember_app_name}(.*)\.js\z}),
+          asset_matching(/vendor(.*)\.js\z/),
+          asset_matching(/#{ember_app_name}(.*)\.js\z/),
         ]
       end
 
@@ -21,8 +21,8 @@ module EmberCli
         assert_asset_map!
 
         [
-          asset_matching(%r{vendor(.*)\.css\z}),
-          asset_matching(%r{#{ember_app_name}(.*)\.css\z}),
+          asset_matching(/vendor(.*)\.css\z/),
+          asset_matching(/#{ember_app_name}(.*)\.css\z/),
         ]
       end
 
@@ -58,7 +58,9 @@ module EmberCli
 
       def assert_asset_map!
         if assets.empty?
-          raise BuildError.new("Missing `#{ember_app_name}/assets/assetMap.json`")
+          raise BuildError.new <<-MSG
+            Missing `#{ember_app_name}/assets/assetMap.json`
+          MSG
         end
       end
     end

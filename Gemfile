@@ -7,7 +7,7 @@ gem "rails", "~> 4.2.5"
 
 group :development, :test do
   gem "pry"
-  gem "ember-cli-rails", github: "thoughtbot/ember-cli-rails", branch: "remove-assets"
+  gem "ember-cli-rails", github: "thoughtbot/ember-cli-rails"
 end
 
 group :test do

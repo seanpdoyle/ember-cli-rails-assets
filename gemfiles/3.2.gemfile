@@ -8,7 +8,7 @@ gem "rails", :git => "https://github.com/rails/rails.git", :branch => "3-2-stabl
 
 group :development, :test do
   gem "pry"
-  gem "ember-cli-rails", :github => "thoughtbot/ember-cli-rails", :branch => "remove-assets"
+  gem "ember-cli-rails", :github => "thoughtbot/ember-cli-rails", :branch => "sd-build-on-init"
 end
 
 group :test do

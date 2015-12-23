@@ -2,8 +2,6 @@ require "ember_cli/assets/lookup"
 
 module EmberCliRailsAssetsHelper
   def include_ember_script_tags(name)
-    EmberCli[name].build
-
     assets = EmberCli::Assets::Lookup.new(EmberCli[name])
 
     assets.javascript_assets.
@@ -12,8 +10,6 @@ module EmberCliRailsAssetsHelper
   end
 
   def include_ember_stylesheet_tags(name)
-    EmberCli[name].build
-
     assets = EmberCli::Assets::Lookup.new(EmberCli[name])
 
     assets.stylesheet_assets.

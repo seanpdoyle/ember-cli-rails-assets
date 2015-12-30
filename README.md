@@ -108,6 +108,20 @@ and `include_ember_stylesheet_tags` helpers to a path other than `"/"`, a
 <%= include_ember_stylesheet_tags :admin_panel %>
 ```
 
+#### Rendering without `<base>` element
+
+To render the asset elements without using a `<base>` element, pass the URL or
+path to prepend:
+
+```erb
+<-- assuming Ember's assets are mounted to `"/"` -->
+<%= include_ember_script_tags :frontend, prepend: "/" %>
+<%= include_ember_stylesheet_tags :frontend, prepend: "/" %>
+
+<%= include_ember_script_tags :admin_panel, prepend: "/" %>
+<%= include_ember_stylesheet_tags :admin_panel, prepend: "/" %>
+```
+
 ## EmberCLI support
 
 This project supports:

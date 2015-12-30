@@ -1,15 +1,22 @@
 require "rails_helper"
 
-feature "User views ember app", :js do
-  scenario "rendering with asset helpers from `/`" do
+feature "User views ember app rendering with asset helpers", :js do
+  scenario "from `/`" do
     visit root_path
 
     expect(page).to have_client_side_asset
     expect(page).to have_javascript_rendered_text
   end
 
-  scenario "rendering with asset helpers from `/nested`" do
+  scenario "from `/nested`" do
     visit nested_path
+
+    expect(page).to have_client_side_asset
+    expect(page).to have_javascript_rendered_text
+  end
+
+  scenario "with base_path from `/relative`" do
+    visit relative_path
 
     expect(page).to have_client_side_asset
     expect(page).to have_javascript_rendered_text

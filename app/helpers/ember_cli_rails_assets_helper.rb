@@ -1,7 +1,7 @@
 require "ember_cli/assets/lookup"
 
 module EmberCliRailsAssetsHelper
-  def include_ember_script_tags(name, base_path=nil)
+  def include_ember_script_tags(name, base_path = nil)
     EmberCli[name].build
 
     assets = EmberCli::Assets::Lookup.new(EmberCli[name])
@@ -11,7 +11,7 @@ module EmberCliRailsAssetsHelper
       inject(&:+)
   end
 
-  def include_ember_stylesheet_tags(name, base_path=nil)
+  def include_ember_stylesheet_tags(name, base_path = nil)
     EmberCli[name].build
 
     assets = EmberCli::Assets::Lookup.new(EmberCli[name])

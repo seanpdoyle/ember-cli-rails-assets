@@ -34,11 +34,7 @@ module EmberCli
       end
 
       def asset_map_hash
-        if asset_map_file.present? && asset_map_file.exist?
-          JSON.parse(asset_map_file.read)
-        else
-          DirectoryAssetMap.new(paths.assets)
-        end
+        DirectoryAssetMap.new(paths.assets)
       end
 
       def name_from_package_json

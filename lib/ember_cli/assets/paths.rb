@@ -17,6 +17,10 @@ module EmberCli
         app.root_path.join("package.json")
       end
 
+      def index_html
+        app.dist_path.join("index.html")
+      end
+
       protected
 
       attr_reader :app

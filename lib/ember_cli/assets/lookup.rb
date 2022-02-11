@@ -25,6 +25,7 @@ module EmberCli
         AssetMap.new(
           name: name_from_package_json,
           asset_map: asset_map_hash.to_h,
+          index_html: paths.index_html,
         )
       end
 

@@ -1,7 +1,7 @@
 module EmberCli
   module Assets
     class Engine < ::Rails::Engine
-      initializer "ember-cli-rails-assets" do
+      config.to_prepare do
         ActionController::Base.helper EmberCliRailsAssetsHelper
       end
     end

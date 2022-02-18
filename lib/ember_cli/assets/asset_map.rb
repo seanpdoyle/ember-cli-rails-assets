@@ -1,34 +1,36 @@
+require 'nokogiri'
 require "ember_cli/assets/errors"
 
 module EmberCli
   module Assets
     class AssetMap
-      def initialize(name:, asset_map:)
+      def initialize(name:, asset_map:, index_html:)
         @name = name
         @asset_map = asset_map
+        @index_html = index_html
       end
 
       def javascripts
         assert_asset_map!
 
-        [
-          asset_matching(/vendor(.*)\.js\z/),
-          asset_matching(/#{name}(.*)\.js\z/),
-        ]
+        Nokogiri::HTML(index_html.read).css('script').map {|s|
+          filename = File.basename(s['src'])
+          asset_matching(/#{Regexp.escape(filename)}\z/)
+        }
       end
 
       def stylesheets
         assert_asset_map!
 
-        [
-          asset_matching(/vendor(.*)\.css\z/),
-          asset_matching(/#{name}(.*)\.css\z/),
-        ]
+        Nokogiri::HTML(index_html.read).css('link[rel="stylesheet"]').map {|s|
+          filename = File.basename(s['href'])
+          asset_matching(/#{Regexp.escape(filename)}\z/)
+        }
       end
 
       private
 
-      attr_reader :name, :asset_map
+      attr_reader :name, :asset_map, :index_html
 
       def asset_matching(regex)
         matching_asset = files.detect { |asset| asset =~ regex }

@@ -65,5 +65,5 @@ def raise_build_error
 end
 
 def build_assets(asset_map: {}, **options)
-  EmberCli::Assets::AssetMap.new(options.merge(asset_map: asset_map))
+  EmberCli::Assets::AssetMap.new(**options.merge(asset_map: asset_map))
 end

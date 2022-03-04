@@ -7,7 +7,7 @@ end
 
 require "spec_helper"
 require "rspec/rails"
-require "capybara/poltergeist"
+require "capybara/cuprite"
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
@@ -15,4 +15,14 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
 end
 
-Capybara.javascript_driver = :poltergeist
+Capybara.server = :webrick
+Capybara.javascript_driver = :cuprite
+Capybara.register_driver :cuprite do |app|
+  Capybara::Cuprite::Driver.new(
+    app,
+    window_size: [1200, 800],
+    process_timeout: 30,
+    timeout: 30,
+    browser_options: { 'no-sandbox': nil }
+  )
+end

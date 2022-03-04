@@ -12,6 +12,6 @@ group :development, :test do
 end
 
 group :test do
-  gem "poltergeist", "~> 1.8.0"
+  gem "cuprite"
   gem "rspec-rails"
 end

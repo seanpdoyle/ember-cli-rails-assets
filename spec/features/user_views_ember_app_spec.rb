@@ -27,6 +27,6 @@ feature "User views ember app rendering with asset helpers", :js do
   end
 
   def have_javascript_rendered_text
-    have_text("Welcome to Ember")
+    have_text("Ember app")
   end
 end

@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 gemspec
 
-gem "rails", "~> 4.2.5"
+gem "rails", ENV['RAILS_VERSION']
 
 group :development, :test do
   gem "pry"

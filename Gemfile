@@ -2,7 +2,6 @@ source "https://rubygems.org"
 
 gemspec
 
-gem "appraisal"
 gem "rails", "~> 4.2.5"
 
 group :development, :test do

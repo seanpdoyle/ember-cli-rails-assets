@@ -11,7 +11,15 @@ describe EmberCli::Assets::AssetMap do
         },
         "prepend" => "foo/",
       }
-      assets = build_assets(name: "bar", asset_map: asset_map)
+      index_html = StringIO.new(<<~HTML)
+        <html>
+          <head>
+            <script src="bar-abc123.js"></script>
+            <script src="vendor-abc123.js"></script>
+          </head>
+        </html>
+      HTML
+      assets = build_assets(name: "bar", asset_map: asset_map, index_html: index_html)
 
       javascripts = assets.javascripts
 
@@ -23,7 +31,7 @@ describe EmberCli::Assets::AssetMap do
 
     context "when the asset_map is empty" do
       it "raises a BuildError" do
-        assets = build_assets(asset_map: {}, name: "bar")
+        assets = build_assets(asset_map: {}, name: "bar", index_html: StringIO.new)
 
         expect { assets.javascripts }.to raise_build_error
       end
@@ -40,7 +48,15 @@ describe EmberCli::Assets::AssetMap do
         },
         "prepend" => "foo/",
       }
-      assets = build_assets(name: "bar", asset_map: asset_map)
+      index_html = StringIO.new(<<~HTML)
+        <html>
+          <head>
+            <link rel="stylesheet" href="bar-abc123.css"></link>
+            <link rel="stylesheet" href="vendor-abc123.css"></link>
+          </head>
+        </html>
+      HTML
+      assets = build_assets(name: "bar", asset_map: asset_map, index_html: index_html)
 
       stylesheets = assets.stylesheets
 
@@ -52,7 +68,7 @@ describe EmberCli::Assets::AssetMap do
 
     context "when the asset_map is empty" do
       it "raises a BuildError" do
-        assets = build_assets(asset_map: {}, name: "bar")
+        assets = build_assets(asset_map: {}, name: "bar", index_html: StringIO.new)
 
         expect { assets.stylesheets }.to raise_build_error
       end
@@ -65,5 +81,5 @@ def raise_build_error
 end
 
 def build_assets(asset_map: {}, **options)
-  EmberCli::Assets::AssetMap.new(options.merge(asset_map: asset_map))
+  EmberCli::Assets::AssetMap.new(**options.merge(asset_map: asset_map))
 end

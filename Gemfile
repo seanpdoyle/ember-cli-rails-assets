@@ -2,8 +2,9 @@ source "https://rubygems.org"
 
 gemspec
 
-gem "appraisal"
-gem "rails", "~> 4.2.5"
+gem "rails", ENV['RAILS_VERSION']
+gem 'sprockets-rails', '< 3'
+gem 'webrick'
 
 group :development, :test do
   gem "pry"
@@ -11,6 +12,6 @@ group :development, :test do
 end
 
 group :test do
-  gem "poltergeist", "~> 1.8.0"
+  gem "cuprite"
   gem "rspec-rails"
 end

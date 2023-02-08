@@ -2,9 +2,17 @@ source "https://rubygems.org"
 
 gemspec
 
-gem "rails", ENV['RAILS_VERSION']
-gem 'sprockets-rails', '< 3'
-gem 'webrick'
+rails_version = ENV.fetch("RAILS_VERSION", "6.0")
+
+if rails_version == "main"
+  rails_constraint = { github: "rails/rails" }
+else
+  rails_constraint = "~> #{rails_version}"
+end
+
+gem "rails", rails_constraint
+gem "sprockets-rails", "< 3"
+gem "webrick"
 
 group :development, :test do
   gem "pry"

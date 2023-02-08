@@ -1,6 +1,19 @@
 master
 ------
 
+0.7.0
+-----
+
+* Drop reading assetMap.json
+* Find assets from dist/index.html [3ac6a21][]
+* Add nokogiri as a dependency [d603fb1][]
+* Use `to_prepare` to use autoload inside engine config [a3fb989][]
+
+[0b0687a]: https://github.com/seanpdoyle/ember-cli-rails-assets/commit/0b0687a25756cbe706639a8a06b9f1d4781b9e30
+[3ac6a21]: https://github.com/seanpdoyle/ember-cli-rails-assets/commit/3ac6a21e8ebcced6b507a3f80bb96a1d6f1f9a76
+[d603fb1]: https://github.com/seanpdoyle/ember-cli-rails-assets/commit/d603fb126b49427a281ff8629855f945c6df9cc7
+[a3fb989]: https://github.com/seanpdoyle/ember-cli-rails-assets/commit/a3fb98943a21c521b1e227d3b8887adacba5f52c
+
 0.6.2
 -----
 

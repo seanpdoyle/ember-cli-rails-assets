@@ -1,6 +1,9 @@
 master
 ------
 
+* Rely on Rails Engine to mix `app/helpers` modules into
+  `ActionController::Base`
+
 0.7.0
 -----
 

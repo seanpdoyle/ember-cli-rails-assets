@@ -11,7 +11,6 @@ else
 end
 
 gem "rails", rails_constraint
-gem "sprockets-rails", "< 3"
 gem "webrick"
 
 group :development, :test do

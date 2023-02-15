@@ -5,7 +5,7 @@ describe EmberCli::Assets::AssetMap do
     it "includes the most recent javascript build artifacts" do
       asset_map = {
         "assets" => {
-          "not-a-match" => {},
+          "not-a-match" => nil,
           "bar.js" => "bar-abc123.js",
           "vendor.js" => "vendor-abc123.js",
         },
@@ -42,7 +42,7 @@ describe EmberCli::Assets::AssetMap do
     it "includes the most recent stylesheet build artifacts" do
       asset_map = {
         "assets" => {
-          "not-a-match" => {},
+          "not-a-match" => nil,
           "bar.css" => "bar-abc123.css",
           "vendor.css" => "vendor-abc123.css",
         },

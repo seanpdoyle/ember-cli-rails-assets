@@ -6,7 +6,6 @@ rails_version = ENV.fetch("RAILS_VERSION", "7.2")
 
 if rails_version == "main"
   rails_constraint = { github: "rails/rails" }
-  gem "rack", "< 3" # To compatible with capybara. https://github.com/teamcapybara/capybara/issues/2640
 else
   rails_constraint = "~> #{rails_version}"
 end
